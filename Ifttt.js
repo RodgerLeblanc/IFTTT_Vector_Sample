@@ -9,7 +9,7 @@ vectorWatch.on('config', function(event, response) {
     logger.info('on config');
 
     var id = response.createGridList('Id');
-    id.setHint('This is your unique identifier (id). Create an IFTTT applet with any trigger that will send an HTTP request using Maker to https:///endpoint.vector.watch/VectorCloud/rest/v1/stream/{streamUUID}/webhook?id={your_id}&msg={message from IFTTT applet}');
+    id.setHint('This is your unique identifier (id). Create an IFTTT applet with any trigger that will send an HTTP request using Maker to https:///endpoint.vector.watch/VectorCloud/rest/v1/stream/' + process.env.STREAM_UUID + '/webhook?id={your_id}&msg={message from IFTTT applet}');
     id.addOption(Date.now());
     
     response.send();
